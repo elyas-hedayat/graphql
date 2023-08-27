@@ -1,0 +1,26 @@
+services:
+  graphql_test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: graphql_test
+    volumes:
+      - .:/graphql_test
+      - graphql_test_static_volume:/graphql_test/static
+      - graphql_test_media_volume:/graphql_test/media
+    restart: always
+    ports:
+      - "8020:8020"
+    networks:
+      avc_dev_base_network:
+        ipv4_address: 172.16.47.18
+
+volumes:
+  graphql_test_static_volume:
+    external: true
+  graphql_test_media_volume:
+    external: true
+
+networks:
+  avc_dev_base_network:
+    external: true
