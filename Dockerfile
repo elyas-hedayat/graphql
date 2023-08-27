@@ -26,4 +26,4 @@ COPY . /app
 # Collect static files
 RUN python manage.py collectstatic --no-input
 
-CMD ["bash", "-c", "gunicorn --bind 0.0.0.0:8001 graphql_test.wsgi:application"]
+CMD ["bash", "-c", "gunicorn --bind 0.0.0.0:8020 graphql_test.wsgi:application"]
